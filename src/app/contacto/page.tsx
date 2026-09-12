@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { Phone, Mail, Instagram, Facebook, MapPin, Send, MessageCircle, CheckCircle2 } from 'lucide-react';
 import { db } from '@/lib/db';
 import { SiteSettings } from '@/types';
-import { getWhatsAppGeneralLink } from '@/lib/utils';
+import { getWhatsAppGeneralLink, getWhatsAppInquiryFallbackLink } from '@/lib/utils';
 
 export default function ContactPage() {
   const [settings, setSettings] = useState<SiteSettings>(db.getSettings());
@@ -51,7 +51,17 @@ export default function ContactPage() {
       setSubmitted(true);
     } catch (err) {
       console.error('Error saving contact lead:', err);
-      alert('Hubo un error al enviar tu consulta. Por favor intentalo nuevamente o escribinos por WhatsApp.');
+      const fallbackUrl = getWhatsAppInquiryFallbackLink(settings.whatsappNumber, {
+        tripName: tripInterest,
+        fullName,
+        email,
+        phone,
+        passengersCount: 1,
+        stage: 'Solo estoy averiguando',
+        message,
+      });
+      window.open(fallbackUrl, '_blank', 'noopener,noreferrer');
+      alert('No pudimos guardar la consulta en este momento. Te abrimos WhatsApp con tus datos para que puedas enviarla igual.');
     }
   };
 

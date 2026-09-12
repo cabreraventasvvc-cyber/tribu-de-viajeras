@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { Send, CheckCircle2, MessageCircle, Sparkles, Heart } from 'lucide-react';
 import { StageOption } from '@/types';
-import { getWhatsAppTripLink } from '@/lib/utils';
+import { getWhatsAppInquiryFallbackLink, getWhatsAppTripLink } from '@/lib/utils';
 
 interface TripInquiryFormProps {
   tripId?: string;
@@ -101,7 +101,18 @@ export default function TripInquiryForm({ tripId, tripName, agencyPhone }: TripI
       setSubmitted(true);
     } catch (err) {
       console.error('Error saving lead:', err);
-      alert('Hubo un error al enviar tu consulta. Por favor intentalo nuevamente o escribinos por WhatsApp.');
+      const fallbackUrl = getWhatsAppInquiryFallbackLink(agencyPhone, {
+        tripName,
+        fullName,
+        email,
+        phone,
+        city,
+        passengersCount: Number(passengersCount),
+        stage,
+        message,
+      });
+      window.open(fallbackUrl, '_blank', 'noopener,noreferrer');
+      alert('No pudimos guardar la consulta en este momento. Te abrimos WhatsApp con tus datos para que puedas enviarla igual.');
     } finally {
       setLoading(false);
     }

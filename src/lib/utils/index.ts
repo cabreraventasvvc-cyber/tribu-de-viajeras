@@ -43,6 +43,34 @@ export function getWhatsAppTripLink(agencyPhone: string, tripTitle: string): str
   return `https://wa.me/${clean}?text=${encodeURIComponent(message)}`;
 }
 
+export function getWhatsAppInquiryFallbackLink(
+  agencyPhone: string,
+  data: {
+    tripName: string;
+    fullName: string;
+    email: string;
+    phone?: string;
+    city?: string;
+    passengersCount?: number;
+    stage?: string;
+    message?: string;
+  }
+): string {
+  const clean = cleanPhoneNumber(agencyPhone);
+  const lines = [
+    `Hola! Quiero consultar por ${data.tripName}.`,
+    `Nombre: ${data.fullName}`,
+    `Email: ${data.email}`,
+    data.phone ? `WhatsApp/Teléfono: ${data.phone}` : '',
+    data.city ? `Ciudad: ${data.city}` : '',
+    data.passengersCount ? `Cantidad de pasajeras: ${data.passengersCount}` : '',
+    data.stage ? `Etapa: ${data.stage}` : '',
+    data.message ? `Mensaje: ${data.message}` : '',
+  ].filter(Boolean);
+
+  return `https://wa.me/${clean}?text=${encodeURIComponent(lines.join('\n'))}`;
+}
+
 export function getWhatsAppGeneralLink(agencyPhone: string): string {
   const clean = cleanPhoneNumber(agencyPhone);
   const message = 'Hola! Quisiera recibir información y asesoramiento sobre los viajes de Tribu de Viajeras.';

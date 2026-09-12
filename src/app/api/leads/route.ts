@@ -75,7 +75,7 @@ export async function POST(req: NextRequest) {
         utm_term: body.utmTerm || null,
       };
 
-      const { data, error } = await getSupabaseClient()
+      const { data, error } = await getSupabaseClient(Boolean(supabaseServiceRoleKey))
         .from('leads')
         .insert(leadPayload)
         .select()
