@@ -3,6 +3,8 @@
 import React, { useEffect, useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import AdminNavbar from '@/components/admin/AdminNavbar';
+import { getAdminSession } from '@/lib/admin/data';
+import { isSupabaseConfigured } from '@/lib/supabase/client';
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -16,7 +18,18 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       return;
     }
 
-    if (typeof window !== 'undefined') {
+    const checkSession = async () => {
+      if (isSupabaseConfigured) {
+        const session = await getAdminSession();
+        if (session) {
+          setIsAuthenticated(true);
+        } else {
+          setIsAuthenticated(false);
+          router.push('/admin/login');
+        }
+        return;
+      }
+
       const session = localStorage.getItem('tribu_admin_session');
       if (session === 'authenticated') {
         setIsAuthenticated(true);
@@ -24,6 +37,10 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         setIsAuthenticated(false);
         router.push('/admin/login');
       }
+    };
+
+    if (typeof window !== 'undefined') {
+      checkSession();
     }
   }, [pathname, router]);
 

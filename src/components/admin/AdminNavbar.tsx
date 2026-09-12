@@ -15,16 +15,15 @@ import {
   LogOut,
   ExternalLink,
 } from 'lucide-react';
+import { signOutAdmin } from '@/lib/admin/data';
 
 export default function AdminNavbar() {
   const pathname = usePathname();
   const router = useRouter();
 
-  const handleLogout = () => {
-    if (typeof window !== 'undefined') {
-      localStorage.removeItem('tribu_admin_session');
-      router.push('/admin/login');
-    }
+  const handleLogout = async () => {
+    await signOutAdmin();
+    router.push('/admin/login');
   };
 
   const navItems = [

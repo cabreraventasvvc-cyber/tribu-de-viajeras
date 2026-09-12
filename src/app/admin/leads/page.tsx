@@ -4,12 +4,8 @@ import React, { useState, useEffect, useMemo } from 'react';
 import {
   Users,
   Search,
-  Filter,
   Download,
   Trash2,
-  Calendar,
-  X,
-  Sparkles,
   ChevronLeft,
   ChevronRight,
   CheckSquare,
@@ -17,9 +13,13 @@ import {
   FileSpreadsheet,
 } from 'lucide-react';
 import * as XLSX from 'xlsx';
-import { db } from '@/lib/db';
 import { Lead, LeadStatus } from '@/types';
 import LeadCard from '@/components/admin/LeadCard';
+import {
+  deleteAdminLead,
+  getAdminLeads,
+  updateAdminLeadStatus,
+} from '@/lib/admin/data';
 
 export default function AdminLeadsPage() {
   const [leads, setLeads] = useState<Lead[]>([]);
@@ -28,6 +28,8 @@ export default function AdminLeadsPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [showFilterDrawer, setShowFilterDrawer] = useState(false);
   const [dateFilter, setDateFilter] = useState('');
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
 
   // Selection
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
@@ -36,8 +38,17 @@ export default function AdminLeadsPage() {
   const [pageSize, setPageSize] = useState(25);
   const [currentPage, setCurrentPage] = useState(1);
 
-  const refreshLeads = () => {
-    setLeads(db.getLeads());
+  const refreshLeads = async () => {
+    try {
+      setError('');
+      const data = await getAdminLeads();
+      setLeads(data);
+    } catch (err) {
+      console.error(err);
+      setError('No pudimos cargar los leads. Revisá la conexión con Supabase.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -158,20 +169,24 @@ export default function AdminLeadsPage() {
   // Bulk status update
   const handleBulkStatus = (status: LeadStatus) => {
     if (selectedIds.length === 0) return;
-    selectedIds.forEach((id) => {
-      db.updateLeadStatus(id, status);
-    });
-    setSelectedIds([]);
-    refreshLeads();
+    Promise.all(selectedIds.map((id) => updateAdminLeadStatus(id, status)))
+      .then(() => {
+        setSelectedIds([]);
+        refreshLeads();
+      })
+      .catch(() => alert('No se pudo actualizar el estado de los leads seleccionados.'));
   };
 
   // Bulk delete
   const handleBulkDelete = () => {
     if (selectedIds.length === 0) return;
     if (window.confirm(`¿Seguro que deseás eliminar ${selectedIds.length} prospectos?`)) {
-      selectedIds.forEach((id) => db.deleteLead(id));
-      setSelectedIds([]);
-      refreshLeads();
+      Promise.all(selectedIds.map((id) => deleteAdminLead(id)))
+        .then(() => {
+          setSelectedIds([]);
+          refreshLeads();
+        })
+        .catch(() => alert('No se pudieron eliminar los leads seleccionados.'));
     }
   };
 
@@ -210,6 +225,12 @@ export default function AdminLeadsPage() {
       </div>
 
       {/* TOP LANDING PILL TABS (Fiel a las capturas de pantalla) */}
+      {error && (
+        <div className="p-3 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-xs font-semibold">
+          {error}
+        </div>
+      )}
+
       <div className="bg-sand-100/70 p-2 rounded-2xl border border-sand-300/80 overflow-x-auto">
         <div className="flex items-center gap-2 whitespace-nowrap min-w-max">
           <span className="text-[10px] uppercase font-bold text-stone-400 px-2">
@@ -439,7 +460,16 @@ export default function AdminLeadsPage() {
       </div>
 
       {/* LEADS LIST */}
-      {paginatedLeads.length === 0 ? (
+      {loading ? (
+        <div className="bg-white rounded-3xl border border-sand-300 p-12 text-center space-y-3">
+          <p className="font-serif text-xl font-bold text-stone-800">
+            Cargando leads...
+          </p>
+          <p className="text-xs text-stone-500">
+            Estamos sincronizando las consultas con la base de datos.
+          </p>
+        </div>
+      ) : paginatedLeads.length === 0 ? (
         <div className="bg-white rounded-3xl border border-sand-300 p-12 text-center space-y-3">
           <p className="font-serif text-xl font-bold text-stone-800">
             No se encontraron leads con los filtros actuales.

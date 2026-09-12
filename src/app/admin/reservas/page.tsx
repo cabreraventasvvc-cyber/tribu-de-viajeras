@@ -1,15 +1,17 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { CreditCard, Plus, CheckCircle, Clock, AlertCircle, DollarSign } from 'lucide-react';
-import { db } from '@/lib/db';
+import { Plus } from 'lucide-react';
 import { Reservation, Trip } from '@/types';
 import { formatPrice, formatDateShort } from '@/lib/utils';
+import { getAdminReservations, getAdminTrips, saveAdminReservation } from '@/lib/admin/data';
 
 export default function AdminReservationsPage() {
   const [reservations, setReservations] = useState<Reservation[]>([]);
   const [trips, setTrips] = useState<Trip[]>([]);
   const [showModal, setShowModal] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
 
   // Form states
   const [passengerName, setPassengerName] = useState('');
@@ -20,23 +22,36 @@ export default function AdminReservationsPage() {
   const [currency, setCurrency] = useState('USD');
   const [notes, setNotes] = useState('');
 
-  const refresh = () => {
-    setReservations(db.getReservations());
-    setTrips(db.getTrips());
+  const refresh = async () => {
+    try {
+      setError('');
+      const [reservationData, tripData] = await Promise.all([
+        getAdminReservations(),
+        getAdminTrips(),
+      ]);
+      setReservations(reservationData);
+      setTrips(tripData);
+    } catch (err) {
+      console.error(err);
+      setError('No pudimos cargar reservas o viajes desde la base de datos.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
     refresh();
   }, []);
 
-  const handleSave = (e: React.FormEvent) => {
+  const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!passengerName || !selectedTripId) return;
 
     const trip = trips.find((t) => t.id === selectedTripId);
     const pendingBalance = Math.max(0, totalAmount - depositAmount);
 
-    db.saveReservation({
+    try {
+      await saveAdminReservation({
       id: `res-${Date.now()}`,
       tripId: selectedTripId,
       tripName: trip ? trip.title : 'Viaje 2027',
@@ -49,12 +64,15 @@ export default function AdminReservationsPage() {
       status: 'Confirmada',
       notes,
       reservationDate: new Date().toISOString(),
-    });
+      });
 
-    setShowModal(false);
-    setPassengerName('');
-    setNotes('');
-    refresh();
+      setShowModal(false);
+      setPassengerName('');
+      setNotes('');
+      refresh();
+    } catch {
+      alert('No se pudo guardar la reserva.');
+    }
   };
 
   return (
@@ -83,6 +101,12 @@ export default function AdminReservationsPage() {
       </div>
 
       {/* Summary totals */}
+      {error && (
+        <div className="p-3 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-xs font-semibold">
+          {error}
+        </div>
+      )}
+
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <div className="bg-white p-5 rounded-2xl border border-sand-300 shadow-xs space-y-1">
           <span className="text-xs font-bold uppercase tracking-wider text-stone-500">
@@ -120,7 +144,11 @@ export default function AdminReservationsPage() {
 
       {/* Table / Cards */}
       <div className="bg-white rounded-3xl border border-sand-300 shadow-xs overflow-hidden">
-        {reservations.length === 0 ? (
+        {loading ? (
+          <div className="p-12 text-center text-stone-500 text-xs">
+            Cargando reservas desde la base de datos...
+          </div>
+        ) : reservations.length === 0 ? (
           <div className="p-12 text-center text-stone-500 text-xs">
             No hay reservas registradas todavía. Podés crear una o convertir un prospecto a RESERVADO.
           </div>

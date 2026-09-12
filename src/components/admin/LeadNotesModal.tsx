@@ -1,30 +1,32 @@
 'use client';
 
 import React, { useState } from 'react';
-import { X, Plus, Calendar, Clock } from 'lucide-react';
+import { X, Plus, Clock } from 'lucide-react';
 import { Lead, LeadNote } from '@/types';
 import { formatDateTime } from '@/lib/utils';
-import { db } from '@/lib/db';
+import { addAdminLeadNote } from '@/lib/admin/data';
 
 interface LeadNotesModalProps {
   lead: Lead;
   onClose: () => void;
-  onUpdated: () => void;
+  onUpdated: () => void | Promise<void>;
 }
 
 export default function LeadNotesModal({ lead, onClose, onUpdated }: LeadNotesModalProps) {
   const [newNote, setNewNote] = useState('');
   const [notes, setNotes] = useState<LeadNote[]>(lead.notes || []);
 
-  const handleAddNote = (e: React.FormEvent) => {
+  const handleAddNote = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!newNote.trim()) return;
 
-    const created = db.addLeadNote(lead.id, newNote.trim());
-    if (created) {
+    try {
+      const created = await addAdminLeadNote(lead.id, newNote.trim());
       setNotes([created, ...notes]);
       setNewNote('');
-      onUpdated();
+      await onUpdated();
+    } catch {
+      alert('No se pudo guardar la nota.');
     }
   };
 

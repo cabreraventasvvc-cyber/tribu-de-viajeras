@@ -3,30 +3,28 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { Compass, Lock, Mail, ArrowRight, ShieldCheck } from 'lucide-react';
+import { Compass, Lock, Mail, ArrowRight } from 'lucide-react';
+import { signInAdmin } from '@/lib/admin/data';
 
 export default function AdminLoginPage() {
   const router = useRouter();
   const [email, setEmail] = useState('Tribudeviajeras1@gmail.com');
-  const [password, setPassword] = useState('tribu2027admin');
+  const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     setError('');
 
-    // Default admin credential check
-    const validEmail = 'tribudeviajeras1@gmail.com';
-    const validPass = 'tribu2027admin';
-
-    if (email.trim().toLowerCase() === validEmail && password === validPass) {
+    try {
+      await signInAdmin(email, password);
       if (typeof window !== 'undefined') {
         localStorage.setItem('tribu_admin_session', 'authenticated');
       }
       router.push('/admin');
-    } else {
+    } catch {
       setError('Credenciales incorrectas. Verificá tu correo y contraseña.');
       setLoading(false);
     }

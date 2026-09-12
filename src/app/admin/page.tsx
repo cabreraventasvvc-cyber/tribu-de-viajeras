@@ -10,24 +10,37 @@ import {
   PlusCircle,
   ArrowRight,
   MessageCircle,
-  Sparkles,
-  TrendingUp,
   Clock,
-  CheckCircle,
 } from 'lucide-react';
-import { db } from '@/lib/db';
 import { Lead, Trip, Reservation } from '@/types';
-import { formatDateTime, getWhatsAppLeadDirectLink, formatPrice } from '@/lib/utils';
+import { formatDateTime, getWhatsAppLeadDirectLink } from '@/lib/utils';
+import { getAdminLeads, getAdminReservations, getAdminTrips } from '@/lib/admin/data';
 
 export default function AdminDashboardPage() {
   const [leads, setLeads] = useState<Lead[]>([]);
   const [trips, setTrips] = useState<Trip[]>([]);
   const [reservations, setReservations] = useState<Reservation[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setLeads(db.getLeads());
-    setTrips(db.getTrips());
-    setReservations(db.getReservations());
+    async function loadDashboard() {
+      try {
+        const [leadData, tripData, reservationData] = await Promise.all([
+          getAdminLeads(),
+          getAdminTrips(),
+          getAdminReservations(),
+        ]);
+        setLeads(leadData);
+        setTrips(tripData);
+        setReservations(reservationData);
+      } catch (err) {
+        console.error('No se pudieron cargar los indicadores del panel.', err);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    loadDashboard();
   }, []);
 
   const totalLeads = leads.length;
@@ -54,6 +67,7 @@ export default function AdminDashboardPage() {
           <p className="text-tribu-100 text-xs sm:text-sm max-w-xl">
             Tenés <strong>{newLeadsCount} prospectos nuevos</strong> esperando respuesta y{' '}
             <strong>{pendingFollowups.length} seguimientos agendados</strong>.
+            {loading && ' Sincronizando datos...'}
           </p>
         </div>
 

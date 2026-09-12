@@ -1,10 +1,10 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Calendar, Clock, MessageCircle, CheckCircle2, User, Phone, Sparkles } from 'lucide-react';
-import { db } from '@/lib/db';
+import { Clock, MessageCircle, CheckCircle2 } from 'lucide-react';
 import { Lead } from '@/types';
 import { formatDateTime, getWhatsAppLeadDirectLink } from '@/lib/utils';
+import { getAdminLeads, updateAdminFollowupCompletion } from '@/lib/admin/data';
 
 interface FollowupItem {
   id: string;
@@ -21,9 +21,20 @@ interface FollowupItem {
 export default function AdminFollowupsPage() {
   const [leads, setLeads] = useState<Lead[]>([]);
   const [filter, setFilter] = useState<'pending' | 'completed' | 'all'>('pending');
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
 
-  const refresh = () => {
-    setLeads(db.getLeads());
+  const refresh = async () => {
+    try {
+      setError('');
+      const data = await getAdminLeads();
+      setLeads(data);
+    } catch (err) {
+      console.error(err);
+      setError('No pudimos cargar los seguimientos.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -47,28 +58,12 @@ export default function AdminFollowupsPage() {
     return true;
   });
 
-  const toggleComplete = (leadId: string, followupId: string, current: boolean) => {
-    const lead = leads.find((l) => l.id === leadId);
-    if (lead && lead.followups) {
-      const flw = lead.followups.find((f) => f.id === followupId);
-      if (flw) {
-        flw.isCompleted = !current;
-        // Save back to db
-        db.saveTrip; // force persist via lead update
-        const stored = localStorage.getItem('tribu_leads_v1');
-        if (stored) {
-          const list: Lead[] = JSON.parse(stored);
-          const idx = list.findIndex((l) => l.id === leadId);
-          if (idx >= 0 && list[idx].followups) {
-            const fIdx = list[idx].followups!.findIndex((f) => f.id === followupId);
-            if (fIdx >= 0) {
-              list[idx].followups![fIdx].isCompleted = !current;
-              localStorage.setItem('tribu_leads_v1', JSON.stringify(list));
-            }
-          }
-        }
-        refresh();
-      }
+  const toggleComplete = async (followupId: string, current: boolean) => {
+    try {
+      await updateAdminFollowupCompletion(followupId, !current);
+      await refresh();
+    } catch {
+      alert('No se pudo actualizar el seguimiento.');
     }
   };
 
@@ -122,8 +117,23 @@ export default function AdminFollowupsPage() {
         </div>
       </div>
 
+      {error && (
+        <div className="p-3 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-xs font-semibold">
+          {error}
+        </div>
+      )}
+
       {/* List */}
-      {filtered.length === 0 ? (
+      {loading ? (
+        <div className="bg-white rounded-3xl border border-sand-300 p-12 text-center space-y-2">
+          <p className="font-serif text-xl font-bold text-stone-800">
+            Cargando seguimientos...
+          </p>
+          <p className="text-xs text-stone-500">
+            Estamos sincronizando la agenda con la base de datos.
+          </p>
+        </div>
+      ) : filtered.length === 0 ? (
         <div className="bg-white rounded-3xl border border-sand-300 p-12 text-center space-y-2">
           <p className="font-serif text-xl font-bold text-stone-800">
             No hay seguimientos en esta categoría.
@@ -149,7 +159,7 @@ export default function AdminFollowupsPage() {
                 <div className="flex items-start gap-3 min-w-0">
                   <button
                     type="button"
-                    onClick={() => toggleComplete(item.leadId, item.id, item.isCompleted)}
+                    onClick={() => toggleComplete(item.id, item.isCompleted)}
                     className="mt-0.5 text-stone-400 hover:text-emerald-600 cursor-pointer"
                     title={item.isCompleted ? 'Desmarcar' : 'Marcar como completado'}
                   >
@@ -197,7 +207,7 @@ export default function AdminFollowupsPage() {
 
                   <button
                     type="button"
-                    onClick={() => toggleComplete(item.leadId, item.id, item.isCompleted)}
+                    onClick={() => toggleComplete(item.id, item.isCompleted)}
                     className="px-3 py-2 rounded-xl bg-sand-100 hover:bg-sand-200 text-stone-700 text-xs font-semibold transition-colors cursor-pointer"
                   >
                     {item.isCompleted ? 'Reabrir' : 'Completado'}

@@ -1,14 +1,14 @@
 'use client';
 
 import React, { useState } from 'react';
-import { X, Calendar, Clock, Check } from 'lucide-react';
+import { X, Check } from 'lucide-react';
 import { Lead } from '@/types';
-import { db } from '@/lib/db';
+import { addAdminFollowup } from '@/lib/admin/data';
 
 interface ScheduleFollowupModalProps {
   lead: Lead;
   onClose: () => void;
-  onScheduled: () => void;
+  onScheduled: () => void | Promise<void>;
 }
 
 export default function ScheduleFollowupModal({
@@ -25,19 +25,18 @@ export default function ScheduleFollowupModal({
   const [time, setTime] = useState('11:00');
   const [notes, setNotes] = useState(`Llamar a ${lead.fullName} para responder dudas sobre ${lead.tripName}.`);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!date || !time) return;
 
     const scheduledIso = new Date(`${date}T${time}:00`).toISOString();
-    db.addLeadFollowup(lead.id, scheduledIso, notes);
-    // Also auto update status to 'Seguimiento' if it's currently 'Nuevo'
-    if (lead.status === 'Nuevo') {
-      db.updateLeadStatus(lead.id, 'Seguimiento');
+    try {
+      await addAdminFollowup(lead.id, scheduledIso, notes, lead.status);
+      await onScheduled();
+      onClose();
+    } catch {
+      alert('No se pudo guardar el seguimiento.');
     }
-
-    onScheduled();
-    onClose();
   };
 
   return (

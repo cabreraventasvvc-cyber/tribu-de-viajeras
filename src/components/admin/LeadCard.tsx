@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { MessageCircle, Calendar, FileText, Trash2, CheckSquare, Square } from 'lucide-react';
 import { Lead, LeadStatus } from '@/types';
 import { formatDateTime, getWhatsAppLeadDirectLink } from '@/lib/utils';
-import { db } from '@/lib/db';
+import { deleteAdminLead, updateAdminLeadStatus } from '@/lib/admin/data';
 import LeadNotesModal from './LeadNotesModal';
 import ScheduleFollowupModal from './ScheduleFollowupModal';
 import LeadDetailModal from './LeadDetailModal';
@@ -13,7 +13,7 @@ interface LeadCardProps {
   lead: Lead;
   isSelected: boolean;
   onToggleSelect: (id: string) => void;
-  onRefresh: () => void;
+  onRefresh: () => void | Promise<void>;
 }
 
 const STATUS_COLORS: Record<LeadStatus, string> = {
@@ -38,15 +38,23 @@ export default function LeadCard({
 
   const notesCount = lead.notes?.length || 0;
 
-  const handleStatusChange = (newStatus: LeadStatus) => {
-    db.updateLeadStatus(lead.id, newStatus);
-    onRefresh();
+  const handleStatusChange = async (newStatus: LeadStatus) => {
+    try {
+      await updateAdminLeadStatus(lead.id, newStatus);
+      await onRefresh();
+    } catch {
+      alert('No se pudo actualizar el estado del lead.');
+    }
   };
 
-  const handleDelete = () => {
+  const handleDelete = async () => {
     if (window.confirm(`¿Seguro que deseás eliminar el lead de ${lead.fullName}?`)) {
-      db.deleteLead(lead.id);
-      onRefresh();
+      try {
+        await deleteAdminLead(lead.id);
+        await onRefresh();
+      } catch {
+        alert('No se pudo eliminar el lead.');
+      }
     }
   };
 
