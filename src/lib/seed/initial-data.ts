@@ -31,7 +31,6 @@ export const initialTrips: Trip[] = [
       'https://images.unsplash.com/photo-1528164344705-475426879c0d?auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1504109586057-7a2ae83d1338?auto=format&fit=crop&w=1200&q=80'
     ],
-    pdfItineraryUrl: '/itineraries/itinerario-japon-2027.pdf',
     startDate: '2027-03-22',
     endDate: '2027-04-03',
     durationDays: 14,
@@ -40,7 +39,6 @@ export const initialTrips: Trip[] = [
     intensity: 'Intensidad baja (actividades físicas ligeras)',
     recommendedAge: 'Todas las edades son bienvenidas',
     modality: 'Explorador - Parcialmente guiado (excursiones guiadas seleccionadas y tiempo libre)',
-    price: 5640,
     currency: 'USD',
     spotsTotal: 16,
     spotsAvailable: 6,
@@ -186,7 +184,6 @@ export const initialTrips: Trip[] = [
       'https://images.unsplash.com/photo-1520175480921-4edfa2983e0f?auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1543429776-2782fc8e1acd?auto=format&fit=crop&w=1200&q=80'
     ],
-    pdfItineraryUrl: '/itineraries/itinerario-italia-2027.pdf',
     startDate: '2027-05-17',
     endDate: '2027-05-27',
     durationDays: 11,
@@ -195,7 +192,6 @@ export const initialTrips: Trip[] = [
     intensity: 'Intensidad baja (actividades físicas ligeras)',
     recommendedAge: 'Todas las edades son bienvenidas',
     modality: 'Explorador - Parcialmente guiado (excursiones seleccionadas)',
-    price: 4233,
     currency: 'USD',
     spotsTotal: 16,
     spotsAvailable: 4,
@@ -321,7 +317,6 @@ export const initialTrips: Trip[] = [
       'https://images.unsplash.com/photo-1538428494232-9c0d8a3ab403?auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1474181487882-5abf3f0ba6c2?auto=format&fit=crop&w=1200&q=80'
     ],
-    pdfItineraryUrl: '/itineraries/itinerario-china-2027.pdf',
     startDate: '2027-06-02',
     endDate: '2027-06-12',
     durationDays: 11,
@@ -330,7 +325,6 @@ export const initialTrips: Trip[] = [
     intensity: 'Intensidad baja (actividades físicas ligeras)',
     recommendedAge: 'Todas las edades son bienvenidas',
     modality: 'Explorador - Parcialmente guiado (con vuelos internos incluidos)',
-    price: 4218,
     currency: 'USD',
     spotsTotal: 16,
     spotsAvailable: 8,

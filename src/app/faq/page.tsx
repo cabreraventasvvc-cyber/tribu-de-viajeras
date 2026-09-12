@@ -21,8 +21,8 @@ export default function FAQPage() {
       a: '¡Totalmente! La inmensa mayoría de las integrantes se inscriben solas. Si no querés abonar el suplemento de habitación individual, te asignamos una compañera de habitación del grupo con la que previamente charlamos para asegurar compatibilidad y afinidad.',
     },
     {
-      q: '¿Cómo son las formas de pago?',
-      a: 'Se realiza una seña inicial en concepto de reserva de cupo (en dólares estadounidenses o equivalente). El saldo restante se cancela mediante un plan de cuotas periódicas antes del viaje, brindándote previsibilidad total.',
+      q: '¿Cómo recibo información completa sobre un viaje?',
+      a: 'Podés escribirnos por WhatsApp o completar el formulario del destino que te interesa. Te enviamos la información actualizada de manera personalizada y resolvemos tus dudas antes de avanzar.',
     },
     {
       q: '¿Qué sucede con los pasajes aéreos internacionales?',

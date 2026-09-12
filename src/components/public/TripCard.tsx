@@ -4,7 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Calendar, Clock, MapPin, MessageCircle, ArrowRight, Sparkles, AlertCircle } from 'lucide-react';
 import { Trip } from '@/types';
-import { formatPrice, formatDateShort, getWhatsAppTripLink } from '@/lib/utils';
+import { formatDateShort, getWhatsAppTripLink } from '@/lib/utils';
 
 interface TripCardProps {
   trip: Trip;
@@ -92,18 +92,17 @@ export default function TripCard({ trip, agencyPhone }: TripCardProps) {
           </p>
         </div>
 
-        {/* Price & CTAs */}
+        {/* Summary & CTAs */}
         <div className="mt-6 pt-4 border-t border-sand-200">
-          <div className="flex items-baseline justify-between mb-4">
+          <div className="mb-4">
             <div>
               <span className="text-xs text-stone-500 uppercase tracking-wider block">
-                Precio por persona
+                Resumen del viaje
               </span>
-              <span className="text-lg sm:text-xl font-serif font-bold text-stone-900">
-                {trip.price ? `Desde ${formatPrice(trip.price, trip.currency)}` : 'A consultar'}
-              </span>
+              <p className="text-sm text-stone-700 mt-1 leading-relaxed">
+                Salida grupal con cupos reducidos. Consultanos y te enviamos todos los detalles.
+              </p>
             </div>
-            <span className="text-[11px] text-stone-500">Plan en cuotas</span>
           </div>
 
           {/* Buttons: Ver viaje, Consultar, WhatsApp */}

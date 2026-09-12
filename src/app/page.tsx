@@ -32,8 +32,8 @@ export default function HomePage() {
       a: 'Podes optar por habitación compartida (dos camas individuales con otra viajera del grupo) o solicitar habitación privada/individual abonando el suplemento correspondiente.',
     },
     {
-      q: '¿Cómo son las formas de pago de las salidas 2027?',
-      a: 'Reservás tu lugar con una seña inicial y luego coordinamos un plan de cuotas fijas mensuales previas a la fecha del viaje, tanto en dólares como en pesos al tipo de cambio acordado.',
+      q: '¿Cómo recibo la información completa de cada viaje?',
+      a: 'Podés escribirnos por WhatsApp o completar el formulario del destino que te interesa. Te contamos disponibilidad, programa y condiciones de manera personalizada.',
     },
     {
       q: '¿Cuántas viajeras integran cada grupo?',
@@ -58,8 +58,7 @@ export default function HomePage() {
               Próximos Viajes y Salidas 2027
             </h2>
             <p className="text-stone-600 text-sm sm:text-base max-w-xl">
-              Explorá nuestros destinos cuidadosamente diseñados. Cada itinerario cuenta con
-              acompañamiento, hotelería seleccionada y cupos reducidos.
+              Explorá nuestros destinos cuidadosamente diseñados. Cada resumen te muestra la experiencia general y podés consultarnos para recibir el detalle completo.
             </p>
           </div>
 

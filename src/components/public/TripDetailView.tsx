@@ -6,22 +6,16 @@ import {
   Calendar,
   Clock,
   MapPin,
-  FileText,
-  Download,
   Check,
   X,
   ShieldCheck,
-  CreditCard,
   AlertCircle,
   MessageCircle,
   ChevronRight,
-  Sparkles,
-  Users,
-  Compass,
 } from 'lucide-react';
 import { db } from '@/lib/db';
 import { Trip, SiteSettings } from '@/types';
-import { formatPrice, formatDateShort, getWhatsAppTripLink } from '@/lib/utils';
+import { formatDateShort, getWhatsAppTripLink } from '@/lib/utils';
 import TripItineraryTimeline from '@/components/public/TripItineraryTimeline';
 import TripInquiryForm from '@/components/public/TripInquiryForm';
 import TripGalleryModal from '@/components/public/TripGalleryModal';
@@ -139,10 +133,10 @@ export default function TripDetailView({ initialTrip }: TripDetailViewProps) {
 
             <div className="space-y-0.5 sm:pl-4 pt-3 sm:pt-0">
               <span className="text-[11px] uppercase tracking-wider text-stone-500 font-medium">
-                Precio por persona
+                Información
               </span>
-              <p className="text-base sm:text-lg font-serif font-bold text-tribu-700">
-                {trip.price ? `Desde ${formatPrice(trip.price, trip.currency)}` : 'A consultar'}
+              <p className="text-xs sm:text-sm font-bold text-stone-800 pt-1">
+                Consultar resumen y disponibilidad
               </p>
             </div>
           </div>
@@ -152,7 +146,7 @@ export default function TripDetailView({ initialTrip }: TripDetailViewProps) {
       {/* Main Content Layout */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 sm:pt-14">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
-          {/* Left Column (8 cols): Description, PDF, Itinerary, Inclusions */}
+          {/* Left Column (8 cols): Description, Itinerary, Inclusions */}
           <div className="lg:col-span-7 space-y-12">
             {/* Overview / Narrative */}
             <section className="space-y-4">
@@ -174,52 +168,14 @@ export default function TripDetailView({ initialTrip }: TripDetailViewProps) {
               </section>
             )}
 
-            {/* PDF DOWNLOAD BANNER (REQUISITO 4) */}
-            {trip.pdfItineraryUrl && (
-              <div className="rounded-3xl p-6 sm:p-7 bg-gradient-to-r from-tribu-100 to-sand-100 border border-tribu-200 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-5">
-                <div className="flex items-center gap-4 text-center sm:text-left">
-                  <div className="w-12 h-12 rounded-2xl bg-tribu-600 text-white flex items-center justify-center shrink-0 shadow-sm">
-                    <FileText className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <h4 className="font-serif text-lg font-bold text-stone-900">
-                      Programa Oficial en PDF
-                    </h4>
-                    <p className="text-stone-600 text-xs sm:text-sm">
-                      Descargá el itinerario completo con el detalle de vuelos, paseos y recomendaciones.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-2 w-full sm:w-auto shrink-0">
-                  <a
-                    href={trip.pdfItineraryUrl}
-                    download
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-tribu-600 hover:bg-tribu-700 text-white font-medium text-xs sm:text-sm shadow-xs transition-colors"
-                  >
-                    <Download className="w-4 h-4" />
-                    <span>Descargar itinerario completo</span>
-                  </a>
-                  <a
-                    href={trip.pdfItineraryUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hidden sm:inline-flex items-center justify-center px-4 py-3 rounded-full bg-white text-stone-800 border border-sand-300 hover:bg-sand-50 font-medium text-xs sm:text-sm transition-colors"
-                  >
-                    Ver programa
-                  </a>
-                </div>
-              </div>
-            )}
-
-            {/* ITINERARY TIMELINE (REQUISITO 3) */}
+            {/* ITINERARY TIMELINE */}
             <section className="space-y-6">
               <div className="space-y-1">
                 <h2 className="font-serif text-2xl sm:text-3xl font-bold text-stone-900">
-                  Itinerario del Viaje
+                  Resumen del Viaje
                 </h2>
                 <p className="text-stone-600 text-sm">
-                  Día por día, todo lo que vamos a vivir y descubrir juntas.
+                  Una vista general de la experiencia. Para recibir el programa completo, escribinos y te asesoramos personalmente.
                 </p>
               </div>
 
@@ -267,10 +223,10 @@ export default function TripDetailView({ initialTrip }: TripDetailViewProps) {
               </div>
             </section>
 
-            {/* REQUIREMENTS & PAYMENT METHODS */}
+            {/* REQUIREMENTS & NEXT STEPS */}
             <section className="space-y-6 pt-2">
               <h2 className="font-serif text-2xl sm:text-3xl font-bold text-stone-900">
-                Requisitos y Formas de Pago
+                Requisitos y Próximo Paso
               </h2>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -286,11 +242,11 @@ export default function TripDetailView({ initialTrip }: TripDetailViewProps) {
 
                 <div className="bg-white p-5 sm:p-6 rounded-3xl border border-sand-200 shadow-xs space-y-2">
                   <div className="flex items-center gap-2 text-tribu-700 font-semibold text-sm">
-                    <CreditCard className="w-4 h-4" />
-                    <span>Formas de Pago</span>
+                    <MessageCircle className="w-4 h-4" />
+                    <span>Información Personalizada</span>
                   </div>
                   <p className="text-stone-600 text-xs sm:text-sm leading-relaxed">
-                    {trip.paymentMethods}
+                    Consultanos por WhatsApp o completá el formulario para recibir detalles actualizados del viaje, disponibilidad y condiciones.
                   </p>
                 </div>
               </div>
