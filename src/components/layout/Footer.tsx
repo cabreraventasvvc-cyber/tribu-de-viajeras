@@ -26,12 +26,12 @@ export default function Footer() {
                 <Compass className="w-5 h-5" />
               </div>
               <span className="font-serif text-2xl font-bold text-white tracking-tight">
-                Tribu de Viajeras
+                Rutas del Alma
               </span>
             </div>
             <p className="text-stone-400 text-sm leading-relaxed">
-              Comunidad de viajes grupales exclusivos para mujeres. Diseñamos experiencias
-              auténticas con seguridad, calidez y la libertad de descubrir el mundo juntas.
+              Agencia demo de viajes boutique con grupos reducidos, asesoramiento personalizado
+              y un CRM interno para gestionar consultas, seguimientos y reservas.
             </p>
             <div className="flex items-center space-x-3 pt-2">
               <a
@@ -64,37 +64,37 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Column 2: Próximas Salidas 2027 */}
+          {/* Column 2: Proximas salidas */}
           <div>
             <h3 className="font-serif text-lg font-semibold text-white mb-4">
-              Próximas Salidas 2027
+              Proximas Salidas 2027
             </h3>
             <ul className="space-y-2.5 text-sm">
               <li>
                 <Link
-                  href="/viajes/japon-2027"
+                  href="/viajes/patagonia-2027"
                   className="hover:text-tribu-400 transition-colors flex items-center gap-1.5"
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-tribu-500"></span>
-                  Japón Marzo/Abril 2027
+                  Patagonia Marzo 2027
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/viajes/italia-2027"
+                  href="/viajes/marruecos-2027"
                   className="hover:text-tribu-400 transition-colors flex items-center gap-1.5"
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-tribu-500"></span>
-                  Italia Mayo 2027
+                  Marruecos Mayo 2027
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/viajes/china-2027"
+                  href="/viajes/grecia-2027"
                   className="hover:text-tribu-400 transition-colors flex items-center gap-1.5"
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-tribu-500"></span>
-                  China Imperial Junio 2027
+                  Grecia Septiembre 2027
                 </Link>
               </li>
               <li>
@@ -111,7 +111,7 @@ export default function Footer() {
           {/* Column 3: Secciones */}
           <div>
             <h3 className="font-serif text-lg font-semibold text-white mb-4">
-              La Tribu
+              La agencia
             </h3>
             <ul className="space-y-2.5 text-sm">
               <li>
@@ -121,7 +121,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/nosotros" className="hover:text-tribu-400 transition-colors">
-                  Nuestra Filosofía y Comunidad
+                  Nuestra propuesta
                 </Link>
               </li>
               <li>
@@ -131,7 +131,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/contacto" className="hover:text-tribu-400 transition-colors">
-                  Contacto y Asesoramiento
+                  Contacto y asesoramiento
                 </Link>
               </li>
             </ul>
@@ -151,7 +151,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="hover:text-white transition-colors"
                 >
-                  {settings.whatsappDisplay || '+54 9 11 7131-3215'}
+                  {settings.whatsappDisplay || '+54 9 11 0000-0000'}
                 </a>
               </li>
               <li className="flex items-start gap-2.5">
@@ -173,8 +173,8 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-stone-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-stone-500">
           <p className="flex items-center gap-1 text-center sm:text-left">
-            &copy; {new Date().getFullYear()} Tribu de Viajeras. Todos los derechos reservados.
-            Hecho con <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500 inline" /> para mujeres que aman viajar.
+            &copy; {new Date().getFullYear()} Rutas del Alma Viajes. Demo comercial reutilizable.
+            Hecho con <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500 inline" /> para agencias que aman vender viajes.
           </p>
           <div className="flex items-center space-x-6">
             <Link

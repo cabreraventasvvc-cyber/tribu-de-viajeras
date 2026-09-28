@@ -55,7 +55,7 @@ export default function AdminLeadsPage() {
     refreshLeads();
   }, []);
 
-  // Compute Trip / Landing Tabs with Counts (Idéntico a las capturas: Todas (386), Tribu - Tailandia (194), etc.)
+  // Compute Trip / Landing Tabs with Counts for all active campaigns.
   const landingTabs = useMemo(() => {
     const map: Record<string, number> = {
       Todas: leads.length,
@@ -162,7 +162,7 @@ export default function AdminLeadsPage() {
     const workbook = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(workbook, worksheet, 'Prospectos');
 
-    const fileName = `Leads_Tribu_de_Viajeras_${new Date().toISOString().split('T')[0]}.${format}`;
+    const fileName = `Leads_Rutas_del_Alma_${new Date().toISOString().split('T')[0]}.${format}`;
     XLSX.writeFile(workbook, fileName, { bookType: format });
   };
 

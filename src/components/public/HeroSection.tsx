@@ -25,11 +25,11 @@ export default function HeroSection({ settings }: HeroProps) {
           <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-tribu-100 border border-tribu-200 text-tribu-800 text-xs sm:text-sm font-medium">
               <Sparkles className="w-4 h-4 text-tribu-600 shrink-0" />
-              <span>Próximas Salidas 2027 • Grupos Reducidos</span>
+              <span>Proximas salidas 2027 • Grupos reducidos</span>
             </div>
 
             <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-stone-900 leading-[1.15]">
-              “Viajar es descubrir el mundo, compartir experiencias y{' '}
+              “Viajar es abrir caminos, compartir experiencias y{' '}
               <span className="text-tribu-600 underline decoration-tribu-300 decoration-wavy decoration-2">
                 crear recuerdos
               </span>{' '}
@@ -37,8 +37,8 @@ export default function HeroSection({ settings }: HeroProps) {
             </h1>
 
             <p className="text-stone-600 text-base sm:text-lg md:text-xl max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
-              Viajes grupales diseñados exclusivamente para mujeres. La tranquilidad de viajar
-              acompañada y cuidada, con la libertad de vivir cada destino a tu propio ritmo.
+              Viajes boutique en grupos reducidos, con asesoramiento cercano, itinerarios cuidados
+              y la tranquilidad de tener acompanamiento antes, durante y despues de viajar.
             </p>
 
             {/* Action Buttons */}
@@ -66,28 +66,28 @@ export default function HeroSection({ settings }: HeroProps) {
               <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
                 <div className="flex items-center gap-1.5 text-tribu-700 font-semibold text-xs sm:text-sm">
                   <Users className="w-4 h-4 shrink-0" />
-                  <span>Solo Mujeres</span>
+                  <span>Grupos reducidos</span>
                 </div>
                 <span className="text-[11px] sm:text-xs text-stone-500 mt-0.5">
-                  Compañerismo y empatía
+                  Atencion cercana
                 </span>
               </div>
               <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
                 <div className="flex items-center gap-1.5 text-tribu-700 font-semibold text-xs sm:text-sm">
                   <ShieldCheck className="w-4 h-4 shrink-0" />
-                  <span>100% Seguras</span>
+                  <span>Asesoramiento</span>
                 </div>
                 <span className="text-[11px] sm:text-xs text-stone-500 mt-0.5">
-                  Coordinación dedicada
+                  Equipo dedicado
                 </span>
               </div>
               <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
                 <div className="flex items-center gap-1.5 text-tribu-700 font-semibold text-xs sm:text-sm">
                   <Heart className="w-4 h-4 shrink-0 text-rose-500 fill-rose-500" />
-                  <span>Cupos Chicos</span>
+                  <span>Cupos cuidados</span>
                 </div>
                 <span className="text-[11px] sm:text-xs text-stone-500 mt-0.5">
-                  Máximo 16 viajeras
+                  Experiencias boutique
                 </span>
               </div>
             </div>
@@ -100,16 +100,16 @@ export default function HeroSection({ settings }: HeroProps) {
               <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white aspect-4/5">
                 <img
                   src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1000&q=80"
-                  alt="Mujeres viajando por el mundo - Tribu de Viajeras"
+                  alt="Personas viajando por el mundo - Rutas del Alma Viajes"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-stone-900/60 via-transparent to-transparent" />
                 <div className="absolute bottom-5 left-5 right-5 text-white">
                   <span className="px-2.5 py-1 rounded-full bg-white/20 backdrop-blur-md text-xs uppercase tracking-wider font-semibold">
-                    Experiencia Tribu
+                    Experiencia boutique
                   </span>
                   <p className="font-serif text-lg sm:text-xl font-bold mt-1.5">
-                    Descubrí Japón, Italia y China con nosotras
+                    Descubri Patagonia, Marruecos y Grecia con nosotros
                   </p>
                 </div>
               </div>

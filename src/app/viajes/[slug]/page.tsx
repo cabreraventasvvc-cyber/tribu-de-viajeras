@@ -22,15 +22,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!trip) {
     return {
-      title: 'Viaje no encontrado | Tribu de Viajeras',
+      title: 'Viaje no encontrado | Rutas del Alma Viajes',
     };
   }
 
   return {
-    title: `${trip.title} | Tribu de Viajeras`,
+    title: `${trip.title} | Rutas del Alma Viajes`,
     description: trip.shortDescription,
     openGraph: {
-      title: `${trip.title} | Tribu de Viajeras`,
+      title: `${trip.title} | Rutas del Alma Viajes`,
       description: trip.shortDescription,
       images: [
         {

@@ -75,7 +75,7 @@ export default function AdminFollowupsPage() {
             Seguimientos Pendientes
           </h1>
           <p className="text-xs text-stone-500">
-            Agenda de contactos, llamadas y mensajes programados para futuras viajeras.
+            Agenda de contactos, llamadas y mensajes programados para futuros clientes.
           </p>
         </div>
 

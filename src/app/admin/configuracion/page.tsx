@@ -90,11 +90,11 @@ export default function AdminSettingsPage() {
                 required
                 value={settings.whatsappNumber}
                 onChange={(e) => handleChange('whatsappNumber', e.target.value)}
-                placeholder="5491171313215"
+                placeholder="5491100000000"
                 className="w-full px-3.5 py-2.5 rounded-xl border border-sand-300 text-sm font-mono"
               />
               <p className="text-[10px] text-stone-400 mt-1">
-                Ej: <code>5491171313215</code> para Argentina.
+                Ej: <code>5491100000000</code> para Argentina.
               </p>
             </div>
 
@@ -106,7 +106,7 @@ export default function AdminSettingsPage() {
                 type="text"
                 value={settings.whatsappDisplay}
                 onChange={(e) => handleChange('whatsappDisplay', e.target.value)}
-                placeholder="+54 9 11 7131-3215"
+                placeholder="+54 9 11 0000-0000"
                 className="w-full px-3.5 py-2.5 rounded-xl border border-sand-300 text-sm"
               />
             </div>
@@ -141,7 +141,7 @@ export default function AdminSettingsPage() {
                 type="url"
                 value={settings.instagramUrl}
                 onChange={(e) => handleChange('instagramUrl', e.target.value)}
-                placeholder="https://www.instagram.com/tribu.deviajeras/"
+                placeholder="https://www.instagram.com/rutasdelalma.demo/"
                 className="w-full px-3.5 py-2.5 rounded-xl border border-sand-300 text-sm font-mono"
               />
             </div>
@@ -154,7 +154,7 @@ export default function AdminSettingsPage() {
                 type="url"
                 value={settings.facebookUrl}
                 onChange={(e) => handleChange('facebookUrl', e.target.value)}
-                placeholder="https://www.facebook.com/tribudeviajeras/"
+                placeholder="https://www.facebook.com/rutasdelalmaviajes/"
                 className="w-full px-3.5 py-2.5 rounded-xl border border-sand-300 text-sm font-mono"
               />
             </div>

@@ -13,32 +13,32 @@ export default function FAQPage() {
 
   const faqs = [
     {
-      q: '¿Qué edad tienen las viajeras de la Tribu?',
-      a: 'Todas las edades son bienvenidas. Por lo general, nuestras viajeras van desde los 28 hasta más de 65 años. Lo que nos une no es la edad, sino la curiosidad, las ganas de disfrutar, el respeto y el espíritu aventurero.',
+      q: '¿Esta es una web real o una demo?',
+      a: 'Es una plantilla demo lista para adaptar a una agencia real. Se puede cambiar marca, WhatsApp, email, viajes, fotos, textos y dominio.',
     },
     {
-      q: '¿Puedo sumarme si no tengo con quién viajar?',
-      a: '¡Totalmente! La inmensa mayoría de las integrantes se inscriben solas. Si no querés abonar el suplemento de habitación individual, te asignamos una compañera de habitación del grupo con la que previamente charlamos para asegurar compatibilidad y afinidad.',
+      q: '¿Los viajes se pueden modificar?',
+      a: 'Si. Desde el panel administrador se pueden crear, editar, publicar o despublicar paquetes, modificar fechas, cupos, imagenes e itinerarios.',
     },
     {
       q: '¿Cómo recibo información completa sobre un viaje?',
       a: 'Podés escribirnos por WhatsApp o completar el formulario del destino que te interesa. Te enviamos la información actualizada de manera personalizada y resolvemos tus dudas antes de avanzar.',
     },
     {
-      q: '¿Qué sucede con los pasajes aéreos internacionales?',
-      a: 'Te asesoramos con los vuelos recomendados para llegar en el horario conveniente del itinerario. Podés emitirlos por tu cuenta o con la agencia de viajes asociada para viajar en los mismos tramos que la coordinadora.',
+      q: '¿Que sucede cuando alguien completa un formulario?',
+      a: 'La consulta se guarda como lead en la base de datos y aparece en el panel privado. Desde ahi se puede cambiar el estado, agregar notas y programar seguimientos.',
     },
     {
       q: '¿Qué nivel de exigencia física tienen los viajes?',
       a: 'Nuestros viajes son de intensidad baja a moderada. Caminamos por centros históricos y atracciones, pero siempre a un ritmo tranquilo, con pausas regulares para descansar, tomar un café o sacar fotos.',
     },
     {
-      q: '¿Necesito tramitar visa o pasaporte?',
-      a: 'Necesitás pasaporte con vigencia mínima de 6 meses posteriores a la fecha de regreso. Para Japón e Italia (ETIAS) e itinerarios como China que requieren visa consular, te brindamos asesoramiento integral y el paso a paso detallado.',
+      q: '¿Se puede conectar con WhatsApp?',
+      a: 'Si. La web tiene botones de WhatsApp y el CRM permite abrir conversaciones con mensajes personalizados segun el viaje consultado.',
     },
     {
-      q: '¿Incluye seguro de asistencia médica?',
-      a: 'Cada viajera debe contar con un seguro de asistencia médica internacional para viajar tranquila. Si ya tenés cobertura con tu tarjeta de crédito o prepaga podés presentarla, o te cotizamos opciones recomendadas con descuento.',
+      q: '¿Incluye cobros online?',
+      a: 'No por ahora. El sistema permite registrar reservas, senas, saldos y estado de pago, pero no procesa pagos online.',
     },
   ];
 
@@ -53,7 +53,7 @@ export default function FAQPage() {
           Todo lo que necesitás saber
         </h1>
         <p className="text-stone-600 text-sm sm:text-base">
-          Respuestas a las dudas más comunes sobre la experiencia de viajar en nuestra tribu.
+          Respuestas sobre esta demo de agencia de viajes con CRM integrado.
         </p>
       </div>
 
@@ -98,7 +98,7 @@ export default function FAQPage() {
           ¿Tenés alguna otra consulta o duda particular?
         </h3>
         <p className="text-stone-600 text-sm max-w-md mx-auto">
-          Nos encanta conversar con cada viajera para despejar inquietudes y que viajes con 100% de tranquilidad.
+          Podemos adaptar esta plantilla a otra marca, otros destinos y otro proceso comercial.
         </p>
         <a
           href={waUrl}

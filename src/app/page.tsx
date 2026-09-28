@@ -24,20 +24,20 @@ export default function HomePage() {
 
   const faqs = [
     {
-      q: '¿Puedo sumarme si viajo sola?',
-      a: '¡Por supuesto! El 85% de las mujeres de nuestra Tribu se suman solas. Nuestro propósito es que viajes con total seguridad, te sientas bienvenida desde el primer minuto y compartas con compañeras afines.',
+      q: '¿Puedo sumarme si viajo solo o sola?',
+      a: 'Si. Muchas personas se suman sin acompanante. Nuestro objetivo es que viajes con respaldo, informacion clara y un grupo reducido donde sea facil integrarse.',
     },
     {
-      q: '¿Cómo se distribuyen las habitaciones?',
-      a: 'Podes optar por habitación compartida (dos camas individuales con otra viajera del grupo) o solicitar habitación privada/individual abonando el suplemento correspondiente.',
+      q: '¿Como se distribuyen las habitaciones?',
+      a: 'Segun el viaje, se puede optar por habitacion compartida o privada. Siempre lo conversamos antes de confirmar la reserva.',
     },
     {
       q: '¿Cómo recibo la información completa de cada viaje?',
       a: 'Podés escribirnos por WhatsApp o completar el formulario del destino que te interesa. Te contamos disponibilidad, programa y condiciones de manera personalizada.',
     },
     {
-      q: '¿Cuántas viajeras integran cada grupo?',
-      a: 'Para preservar una experiencia cálida, segura y personalizada, nuestros grupos son reducidos, con un promedio de 12 a 16 viajeras como máximo.',
+      q: '¿Cuantas personas integran cada grupo?',
+      a: 'Para preservar una experiencia calida y personalizada, trabajamos con grupos reducidos y cupos limitados.',
     },
   ];
 
@@ -97,7 +97,7 @@ export default function HomePage() {
             Preguntas Frecuentes
           </h2>
           <p className="text-stone-600 text-sm sm:text-base">
-            Todo lo que necesitás saber antes de embarcarte con nosotras.
+            Todo lo que necesitas saber antes de elegir tu proximo viaje.
           </p>
         </div>
 
@@ -152,11 +152,11 @@ export default function HomePage() {
             ¡El mundo te espera!
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">
-            ¿Tenés ganas de viajar pero no querés ir sola?
+            ¿Tenes ganas de viajar con una propuesta cuidada?
           </h2>
           <p className="text-tribu-100 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-            Sumate a Tribu de Viajeras. Escribinos para que te contemos en detalle cómo funciona cada
-            viaje, resolver tus preguntas y ayudarte a planificar tu próxima aventura.
+            Escribinos para conocer el programa completo, resolver tus preguntas y ayudarte a planificar
+            tu proxima aventura con una atencion cercana.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
             <a

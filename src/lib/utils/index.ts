@@ -63,7 +63,7 @@ export function getWhatsAppInquiryFallbackLink(
     `Email: ${data.email}`,
     data.phone ? `WhatsApp/Teléfono: ${data.phone}` : '',
     data.city ? `Ciudad: ${data.city}` : '',
-    data.passengersCount ? `Cantidad de pasajeras: ${data.passengersCount}` : '',
+    data.passengersCount ? `Cantidad de pasajeros: ${data.passengersCount}` : '',
     data.stage ? `Etapa: ${data.stage}` : '',
     data.message ? `Mensaje: ${data.message}` : '',
   ].filter(Boolean);
@@ -73,13 +73,13 @@ export function getWhatsAppInquiryFallbackLink(
 
 export function getWhatsAppGeneralLink(agencyPhone: string): string {
   const clean = cleanPhoneNumber(agencyPhone);
-  const message = 'Hola! Quisiera recibir información y asesoramiento sobre los viajes de Tribu de Viajeras.';
+  const message = 'Hola! Quisiera recibir información y asesoramiento sobre los viajes de Rutas del Alma.';
   return `https://wa.me/${clean}?text=${encodeURIComponent(message)}`;
 }
 
 export function getWhatsAppLeadDirectLink(leadPhone: string, leadName: string, tripName?: string): string {
   const clean = cleanPhoneNumber(leadPhone);
   const tripText = tripName ? ` por el viaje a ${tripName}` : '';
-  const message = `Hola ${leadName}! Te escribo de Tribu de Viajeras en respuesta a tu consulta${tripText}. ¿Cómo estás?`;
+  const message = `Hola ${leadName}! Te escribo de Rutas del Alma en respuesta a tu consulta${tripText}. ¿Cómo estás?`;
   return `https://wa.me/${clean}?text=${encodeURIComponent(message)}`;
 }

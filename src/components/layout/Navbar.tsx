@@ -35,7 +35,7 @@ export default function Navbar() {
     { name: 'Inicio', href: '/' },
     { name: 'Viajes', href: '/viajes' },
     { name: 'Próximas salidas', href: '/#proximas-salidas' },
-    { name: 'Nuestra Tribu', href: '/nosotros' },
+    { name: 'Nosotros', href: '/nosotros' },
     { name: 'Preguntas frecuentes', href: '/faq' },
     { name: 'Contacto', href: '/contacto' },
   ];
@@ -59,10 +59,10 @@ export default function Navbar() {
             </div>
             <div className="flex flex-col">
               <span className="font-serif text-lg sm:text-2xl font-bold tracking-tight text-stone-900 group-hover:text-tribu-600 transition-colors leading-tight">
-                Tribu de Viajeras
+                Rutas del Alma
               </span>
               <span className="text-[10px] sm:text-xs tracking-widest uppercase text-tribu-700 font-medium">
-                Viajes para mujeres
+                Viajes boutique
               </span>
             </div>
           </Link>
@@ -156,7 +156,7 @@ export default function Navbar() {
                 onClick={() => setIsOpen(false)}
                 className="w-full text-center py-3 rounded-full bg-tribu-600 text-white text-sm font-medium shadow-xs"
               >
-                Explorar Viajes 2027
+                Explorar viajes 2027
               </Link>
             </div>
           </nav>

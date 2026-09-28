@@ -137,7 +137,7 @@ export default function ContactPage() {
                   <p className="text-xs uppercase tracking-wider text-stone-500 font-semibold">
                     Redes Sociales
                   </p>
-                  <span className="text-[11px] font-bold text-rose-600">@tribu.deviajeras</span>
+                  <span className="text-[11px] font-bold text-rose-600">@rutasdelalma.demo</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <a
@@ -147,7 +147,7 @@ export default function ContactPage() {
                     className="flex-1 flex items-center justify-center gap-2 px-3.5 py-2 rounded-xl bg-gradient-to-r from-amber-500 via-rose-500 to-purple-600 text-white text-xs font-semibold shadow-xs hover:opacity-95 transition-opacity"
                   >
                     <Instagram className="w-4 h-4" />
-                    <span>Instagram @tribu.deviajeras</span>
+                    <span>Instagram @rutasdelalma.demo</span>
                   </a>
                   <a
                     href={settings.facebookUrl}
@@ -156,7 +156,7 @@ export default function ContactPage() {
                     className="flex-1 flex items-center justify-center gap-2 px-3.5 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold shadow-xs transition-colors"
                   >
                     <Facebook className="w-4 h-4 fill-white" />
-                    <span>Facebook /tribudeviajeras</span>
+                    <span>Facebook /rutasdelalmaviajes</span>
                   </a>
                 </div>
 
@@ -165,7 +165,7 @@ export default function ContactPage() {
                   <div className="w-16 h-16 rounded-xl overflow-hidden border border-sand-300 shrink-0 bg-white p-1">
                     <img
                       src="/images/branding/instagram-qr.png"
-                      alt="Instagram QR @tribu.deviajeras"
+                      alt="Instagram QR @rutasdelalma.demo"
                       className="w-full h-full object-contain"
                     />
                   </div>
@@ -209,7 +209,7 @@ export default function ContactPage() {
                   ¡Mensaje enviado con éxito!
                 </h3>
                 <p className="text-stone-600 text-sm max-w-md mx-auto">
-                  Gracias por escribirnos. La administradora de la Tribu revisará tu mensaje y se pondrá
+                  Gracias por escribirnos. El equipo comercial revisara tu mensaje y se pondra
                   en contacto con vos pronto.
                 </p>
                 <button
@@ -278,10 +278,10 @@ export default function ContactPage() {
                     onChange={(e) => setTripInterest(e.target.value)}
                     className="w-full px-4 py-2.5 rounded-xl border border-sand-300 text-stone-900 text-sm focus:ring-2 focus:ring-tribu-500 focus:outline-hidden"
                   >
-                    <option value="Consulta General">Consulta General sobre la Tribu</option>
-                    <option value="Japón Marzo/Abril 2027">Japón Marzo/Abril 2027</option>
-                    <option value="Italia Mayo 2027">Italia Mayo 2027</option>
-                    <option value="China Imperial Junio 2027">China Imperial Junio 2027</option>
+                    <option value="Consulta General">Consulta General</option>
+                    <option value="Patagonia Esencial 2027">Patagonia Esencial 2027</option>
+                    <option value="Marruecos Sensorial 2027">Marruecos Sensorial 2027</option>
+                    <option value="Grecia Azul 2027">Grecia Azul 2027</option>
                   </select>
                 </div>
 
@@ -294,7 +294,7 @@ export default function ContactPage() {
                     required
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
-                    placeholder="Contanos tus inquietudes, disponibilidad de fechas, si viajás sola o con alguien..."
+                    placeholder="Contanos tus inquietudes, disponibilidad de fechas o cantidad de pasajeros..."
                     className="w-full px-4 py-2.5 rounded-xl border border-sand-300 text-stone-900 text-sm focus:ring-2 focus:ring-tribu-500 focus:outline-hidden resize-none"
                   />
                 </div>

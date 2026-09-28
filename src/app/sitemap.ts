@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { db } from '@/lib/db';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://tribudeviajeras.com';
+  const baseUrl = 'https://rutas-del-alma-demo.vercel.app';
   const trips = db.getPublishedTrips();
 
   const tripUrls = trips.map((trip) => ({

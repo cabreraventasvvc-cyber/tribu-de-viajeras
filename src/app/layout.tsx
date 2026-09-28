@@ -5,26 +5,24 @@ import Footer from '@/components/layout/Footer';
 import FloatingWhatsApp from '@/components/layout/FloatingWhatsApp';
 
 export const metadata: Metadata = {
-  title: 'Tribu de Viajeras | Viajes grupales exclusivos para mujeres',
+  title: 'Rutas del Alma Viajes | Viajes boutique y CRM turistico',
   description:
-    'Descubrí el mundo en comunidad. Próximas salidas grupales para mujeres a Japón 2027, Italia 2027 y China 2027. Seguridad, libertad y recuerdos para toda la vida.',
+    'Demo de agencia de viajes boutique con paquetes, formularios, panel administrador, CRM de leads, seguimientos y reservas.',
   keywords: [
-    'viajes para mujeres',
-    'tribu de viajeras',
-    'viajes grupales mujeres',
-    'japon 2027',
-    'italia 2027',
-    'china 2027',
-    'viajar sola en grupo',
-    'turismo para mujeres'
+    'agencia de viajes',
+    'crm turismo',
+    'viajes boutique',
+    'panel administrador turismo',
+    'leads viajes',
+    'reservas turismo'
   ],
   openGraph: {
-    title: 'Tribu de Viajeras | Viajes grupales para mujeres',
+    title: 'Rutas del Alma Viajes | Demo CRM turistico',
     description:
-      'Viajar es descubrir el mundo, compartir experiencias y crear recuerdos para toda la vida. Sumate a la Tribu.',
+      'Web de viajes con administracion de paquetes, CRM de consultas, seguimientos y reservas.',
     type: 'website',
     locale: 'es_AR',
-    siteName: 'Tribu de Viajeras',
+    siteName: 'Rutas del Alma Viajes',
   },
 };
 

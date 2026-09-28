@@ -3,10 +3,10 @@ import { initialTrips, initialLeads, initialSettings, initialReservations } from
 
 // Browser-safe storage key
 const STORAGE_KEYS = {
-  TRIPS: 'tribu_trips_v1',
-  LEADS: 'tribu_leads_v1',
-  SETTINGS: 'tribu_settings_v1',
-  RESERVATIONS: 'tribu_reservations_v1',
+  TRIPS: 'rutas_del_alma_trips_v1',
+  LEADS: 'rutas_del_alma_leads_v1',
+  SETTINGS: 'rutas_del_alma_settings_v1',
+  RESERVATIONS: 'rutas_del_alma_reservations_v1',
 };
 
 class DataStore {

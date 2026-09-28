@@ -42,7 +42,7 @@ export default function TripsCatalogPage() {
           Nuestros Viajes y Destinos
         </h1>
         <p className="text-stone-600 text-sm sm:text-base">
-          Recorridos diseñados para vivir en grupo, con la calidez y el respaldo de Tribu de Viajeras.
+          Recorridos demo pensados para mostrar una web de agencia con consultas, CRM y reservas.
         </p>
       </div>
 

@@ -220,8 +220,8 @@ export async function getAdminSession() {
 export async function signInAdmin(email: string, password: string) {
   const client = getClient();
   if (!client) {
-    const validEmail = 'tribudeviajeras1@gmail.com';
-    const validPass = 'tribu2027admin';
+    const validEmail = 'admin@rutasdelalma.demo';
+    const validPass = 'demo2027admin';
     if (email.trim().toLowerCase() !== validEmail || password !== validPass) {
       throw new Error('Credenciales incorrectas.');
     }
@@ -240,7 +240,7 @@ export async function signOutAdmin() {
   const client = getClient();
   if (client) await client.auth.signOut();
   if (typeof window !== 'undefined') {
-    localStorage.removeItem('tribu_admin_session');
+    localStorage.removeItem('rutas_del_alma_admin_session');
   }
 }
 
@@ -398,7 +398,7 @@ export async function addAdminFollowup(
 export async function updateAdminFollowupCompletion(followupId: string, isCompleted: boolean) {
   const client = getClient();
   if (!client) {
-    const stored = localStorage.getItem('tribu_leads_v1');
+    const stored = localStorage.getItem('rutas_del_alma_leads_v1');
     if (!stored) return;
     const leads: Lead[] = JSON.parse(stored);
     const next = leads.map((lead) => ({
@@ -407,7 +407,7 @@ export async function updateAdminFollowupCompletion(followupId: string, isComple
         followup.id === followupId ? { ...followup, isCompleted } : followup
       ),
     }));
-    localStorage.setItem('tribu_leads_v1', JSON.stringify(next));
+    localStorage.setItem('rutas_del_alma_leads_v1', JSON.stringify(next));
     return;
   }
 

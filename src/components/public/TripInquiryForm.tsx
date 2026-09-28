@@ -257,17 +257,17 @@ export default function TripInquiryForm({ tripId, tripName, agencyPhone }: TripI
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label className="block text-xs font-semibold uppercase tracking-wider text-stone-700 mb-1">
-              Cantidad de pasajeras
+            Cantidad de pasajeros
             </label>
             <select
               value={passengersCount}
               onChange={(e) => setPassengersCount(Number(e.target.value))}
               className="w-full px-4 py-2.5 rounded-xl border border-sand-300 text-stone-900 text-sm focus:outline-hidden focus:ring-2 focus:ring-tribu-500 focus:border-transparent bg-white"
             >
-              <option value={1}>1 pasajera (viajo sola)</option>
-              <option value={2}>2 pasajeras (con amiga / familiar)</option>
-              <option value={3}>3 pasajeras</option>
-              <option value={4}>4 o más pasajeras</option>
+              <option value={1}>1 persona</option>
+              <option value={2}>2 personas</option>
+              <option value={3}>3 personas</option>
+              <option value={4}>4 o más personas</option>
             </select>
           </div>
 

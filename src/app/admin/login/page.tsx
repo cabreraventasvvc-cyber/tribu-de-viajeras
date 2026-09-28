@@ -8,7 +8,7 @@ import { signInAdmin } from '@/lib/admin/data';
 
 export default function AdminLoginPage() {
   const router = useRouter();
-  const [email, setEmail] = useState('Tribudeviajeras1@gmail.com');
+  const [email, setEmail] = useState('admin@rutasdelalma.demo');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -21,7 +21,7 @@ export default function AdminLoginPage() {
     try {
       await signInAdmin(email, password);
       if (typeof window !== 'undefined') {
-        localStorage.setItem('tribu_admin_session', 'authenticated');
+        localStorage.setItem('rutas_del_alma_admin_session', 'authenticated');
       }
       router.push('/admin');
     } catch {
@@ -39,7 +39,7 @@ export default function AdminLoginPage() {
             <Compass className="w-8 h-8" />
           </div>
           <h1 className="font-serif text-2xl sm:text-3xl font-bold text-stone-900">
-            Tribu de Viajeras
+            Rutas del Alma
           </h1>
           <p className="text-xs uppercase tracking-widest text-tribu-700 font-bold">
             Panel de Administración & CRM

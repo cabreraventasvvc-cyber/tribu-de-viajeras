@@ -29,15 +29,15 @@ export default function FloatingWhatsApp() {
   let targetUrl = getWhatsAppGeneralLink(settings.whatsappNumber);
   let badgeText = '¡Hablemos por WhatsApp!';
 
-  if (pathname.includes('/viajes/japon-2027')) {
-    targetUrl = getWhatsAppTripLink(settings.whatsappNumber, 'Japón 2027');
-    badgeText = '¿Dudas sobre Japón 2027? ¡Escribinos!';
-  } else if (pathname.includes('/viajes/italia-2027')) {
-    targetUrl = getWhatsAppTripLink(settings.whatsappNumber, 'Italia Mayo 2027');
-    badgeText = '¿Consultas sobre Italia 2027? ¡Escribinos!';
-  } else if (pathname.includes('/viajes/china-2027')) {
-    targetUrl = getWhatsAppTripLink(settings.whatsappNumber, 'China Imperial 2027');
-    badgeText = '¿Preguntas sobre China 2027? ¡Escribinos!';
+  if (pathname.includes('/viajes/patagonia-2027')) {
+    targetUrl = getWhatsAppTripLink(settings.whatsappNumber, 'Patagonia Esencial 2027');
+    badgeText = '¿Dudas sobre Patagonia 2027? ¡Escribinos!';
+  } else if (pathname.includes('/viajes/marruecos-2027')) {
+    targetUrl = getWhatsAppTripLink(settings.whatsappNumber, 'Marruecos Sensorial 2027');
+    badgeText = '¿Consultas sobre Marruecos 2027? ¡Escribinos!';
+  } else if (pathname.includes('/viajes/grecia-2027')) {
+    targetUrl = getWhatsAppTripLink(settings.whatsappNumber, 'Grecia Azul 2027');
+    badgeText = '¿Preguntas sobre Grecia 2027? ¡Escribinos!';
   }
 
   return (

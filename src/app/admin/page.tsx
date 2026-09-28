@@ -62,7 +62,7 @@ export default function AdminDashboardPage() {
             Panel de Control
           </span>
           <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold">
-            ¡Hola, Administradora de la Tribu!
+            ¡Hola, Administradora!
           </h1>
           <p className="text-tribu-100 text-xs sm:text-sm max-w-xl">
             Tenés <strong>{newLeadsCount} prospectos nuevos</strong> esperando respuesta y{' '}

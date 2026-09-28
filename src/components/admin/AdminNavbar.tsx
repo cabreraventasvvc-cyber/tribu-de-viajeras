@@ -47,7 +47,7 @@ export default function AdminNavbar() {
             </div>
             <div>
               <span className="font-serif text-lg sm:text-xl font-bold text-stone-900 leading-tight block">
-                Tribu de Viajeras
+                Rutas del Alma
               </span>
               <span className="text-[10px] text-stone-500 uppercase tracking-wider font-semibold">
                 Panel de Gestión

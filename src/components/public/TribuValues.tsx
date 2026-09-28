@@ -5,21 +5,21 @@ export default function TribuValues() {
   const values = [
     {
       icon: Users,
-      title: 'Comunidad de Mujeres',
+      title: 'Grupos Reducidos',
       description:
-        'Viajamos en grupos pequeños exclusivamente femeninos donde la empatía, las risas y las nuevas amistades fluyen con total naturalidad.',
+        'Armamos salidas pequenas para cuidar el ritmo, la atencion y la experiencia de cada viajero.',
     },
     {
       icon: ShieldCheck,
-      title: 'Seguridad y Cuidado Integral',
+      title: 'Cuidado Integral',
       description:
-        'Cuidamos cada detalle logístico: traslados, hoteles seleccionados y acompañamiento continuo para que solo te ocupes de disfrutar.',
+        'Cuidamos cada detalle logistico: traslados, hoteles seleccionados y acompanamiento continuo para que solo tengas que disfrutar.',
     },
     {
       icon: Compass,
-      title: 'Viajar Sola, Nunca en Soledad',
+      title: 'Viajar Acompanado',
       description:
-        'La mayoría de nuestras viajeras se suman solas y regresan con una red de amigas entrañables y recuerdos inolvidables.',
+        'Muchas personas se suman solas y encuentran un grupo cuidado para compartir destino, charla y momentos memorables.',
     },
     {
       icon: Smile,
@@ -35,14 +35,14 @@ export default function TribuValues() {
         <div className="text-center max-w-2xl mx-auto mb-14 space-y-3">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-tribu-100 text-tribu-800 text-xs font-semibold">
             <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500" />
-            <span>Nuestra Filosofía</span>
+            <span>Nuestra Filosofia</span>
           </div>
           <h2 className="font-serif text-3xl sm:text-4xl font-bold text-stone-900">
-            ¿Por qué viajar con Tribu de Viajeras?
+            ¿Por que viajar con Rutas del Alma?
           </h2>
           <p className="text-stone-600 text-sm sm:text-base">
-            No somos una agencia convencional de turismo masivo. Creamos experiencias humanas,
-            íntimas y transformadoras.
+            No somos una agencia demo de turismo masivo. Mostramos como vender experiencias humanas,
+            cercanas y faciles de gestionar desde un CRM.
           </p>
         </div>
 

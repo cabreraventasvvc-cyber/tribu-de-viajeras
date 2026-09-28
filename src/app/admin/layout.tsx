@@ -30,7 +30,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         return;
       }
 
-      const session = localStorage.getItem('tribu_admin_session');
+      const session = localStorage.getItem('rutas_del_alma_admin_session');
       if (session === 'authenticated') {
         setIsAuthenticated(true);
       } else {

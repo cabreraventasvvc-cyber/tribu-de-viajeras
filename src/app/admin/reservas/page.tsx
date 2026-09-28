@@ -83,7 +83,7 @@ export default function AdminReservationsPage() {
             Control de Reservas
           </h1>
           <p className="text-xs text-stone-500">
-            Registro de viajeras confirmadas, señas recibidas y saldos pendientes.
+            Registro de pasajeros confirmados, senas recibidas y saldos pendientes.
           </p>
         </div>
 
@@ -113,7 +113,7 @@ export default function AdminReservationsPage() {
             Total Reservas
           </span>
           <p className="font-serif text-2xl font-bold text-stone-900">
-            {reservations.length} viajeras
+            {reservations.length} pasajeros
           </p>
         </div>
 
@@ -220,14 +220,14 @@ export default function AdminReservationsPage() {
             <form onSubmit={handleSave} className="space-y-3.5 text-xs">
               <div>
                 <label className="block font-bold uppercase tracking-wider text-stone-700 mb-1">
-                  Nombre de la Pasajera
+                  Nombre del Pasajero
                 </label>
                 <input
                   type="text"
                   required
                   value={passengerName}
                   onChange={(e) => setPassengerName(e.target.value)}
-                  placeholder="Ej: Florencia Benítez"
+                  placeholder="Ej: Lucia Fernandez"
                   className="w-full px-3 py-2 rounded-xl border border-sand-300"
                 />
               </div>
@@ -256,7 +256,7 @@ export default function AdminReservationsPage() {
               <div className="grid grid-cols-2 gap-3">
                 <div>
                   <label className="block font-bold uppercase tracking-wider text-stone-700 mb-1">
-                    Pasajeras
+                    Pasajeros
                   </label>
                   <input
                     type="number"
@@ -314,7 +314,7 @@ export default function AdminReservationsPage() {
                   rows={2}
                   value={notes}
                   onChange={(e) => setNotes(e.target.value)}
-                  placeholder="Ej: Habitación a compartir con otra viajera..."
+                  placeholder="Ej: Habitacion doble a compartir..."
                   className="w-full px-3 py-2 rounded-xl border border-sand-300 resize-none"
                 />
               </div>

@@ -17,14 +17,14 @@ export default function AboutPage() {
         <div className="text-center space-y-4 max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-tribu-100 text-tribu-800 text-xs font-semibold">
             <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500" />
-            <span>Nuestra Historia & Propósito</span>
+            <span>Nuestra Historia & Proposito</span>
           </div>
           <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-stone-900">
-            Sobre Nosotros / Nuestra Tribu
+            Sobre Nosotros
           </h1>
           <p className="text-stone-600 text-base sm:text-lg leading-relaxed">
-            Una comunidad nacida del deseo de viajar sin ataduras, compartir momentos auténticos y
-            descubrir el mundo con la confianza de estar respaldadas en cada paso.
+            Una agencia demo pensada para mostrar como una marca turistica puede vender viajes,
+            recibir consultas y organizar seguimientos desde un mismo sistema.
           </p>
         </div>
 
@@ -32,12 +32,12 @@ export default function AboutPage() {
         <div className="relative rounded-3xl overflow-hidden shadow-xl aspect-16/9 md:aspect-21/9">
           <img
             src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=1600&q=80"
-            alt="Grupo de mujeres viajando juntas"
+            alt="Grupo viajando junto"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-stone-950/70 via-transparent to-transparent flex items-end p-6 sm:p-10">
             <p className="font-serif text-xl sm:text-2xl text-white font-bold">
-              “No hay nada más poderoso que un grupo de mujeres compartiendo el asombro de un nuevo destino.”
+              “Un buen viaje empieza cuando la inspiracion se convierte en una consulta bien atendida.”
             </p>
           </div>
         </div>
@@ -46,17 +46,15 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           <div className="space-y-4 text-stone-700 text-sm sm:text-base leading-relaxed">
             <h2 className="font-serif text-2xl sm:text-3xl font-bold text-stone-900">
-              ¿Cómo nació Tribu de Viajeras?
+              ¿Como nace Rutas del Alma?
             </h2>
             <p>
-              Muchas veces nos encontramos postergando viajes porque amigas o familiares no
-              coinciden en fechas, presupuestos o intereses. La idea de ir sola a destinos remotos
-              como Japón o China puede generar incertidumbre o temor.
+              Esta demo nace como una plantilla comercial para agencias que quieren tener una web
+              atractiva y, al mismo tiempo, ordenar sus consultas desde un CRM propio.
             </p>
             <p>
-              Así nació <strong>Tribu de Viajeras</strong>: como un puente seguro y cálido para que
-              ninguna mujer tenga que renunciar a sus sueños de conocer el mundo. Aquí no sos un
-              número de paquete; sos parte de una tribu que se cuida, se divierte y celebra la vida.
+              <strong>Rutas del Alma</strong> es una marca ficticia creada para mostrar el producto:
+              sitio publico, paquetes editables, formularios, leads, notas, seguimientos y reservas.
             </p>
           </div>
 
@@ -68,15 +66,15 @@ export default function AboutPage() {
             <ul className="space-y-3 text-sm text-stone-700">
               <li className="flex items-start gap-2.5">
                 <span className="w-2 h-2 rounded-full bg-tribu-600 mt-2 shrink-0" />
-                <span><strong>Seguridad emocional y logística:</strong> cuidamos traslados, hotelería y tiempos para que viajes con total serenidad.</span>
+                <span><strong>Gestion comercial:</strong> cada consulta entra al CRM para poder responder y hacer seguimiento.</span>
               </li>
               <li className="flex items-start gap-2.5">
                 <span className="w-2 h-2 rounded-full bg-tribu-600 mt-2 shrink-0" />
-                <span><strong>Libertad personal:</strong> actividades grupales programadas combinadas con tiempo libre para tu propio ritmo.</span>
+                <span><strong>Viajes editables:</strong> los paquetes pueden modificarse desde el administrador.</span>
               </li>
               <li className="flex items-start gap-2.5">
                 <span className="w-2 h-2 rounded-full bg-tribu-600 mt-2 shrink-0" />
-                <span><strong>Amistad genuina:</strong> la mayoría se suma sola y termina tejiendo vínculos entrañables que perduran toda la vida.</span>
+                <span><strong>Atencion por WhatsApp:</strong> cada lead puede responderse rapido con mensaje personalizado.</span>
               </li>
             </ul>
           </div>
@@ -88,8 +86,8 @@ export default function AboutPage() {
             ¿Querés ser parte de nuestra próxima salida?
           </h3>
           <p className="text-stone-600 text-sm sm:text-base max-w-xl mx-auto">
-            Estamos planificando salidas inolvidables para 2027 a Japón, Italia y China. Conocé los
-            itinerarios o escribinos para asesorarte personalmente.
+            Esta demo incluye salidas ficticias a Patagonia, Marruecos y Grecia. Puede adaptarse a
+            cualquier agencia, destino o nicho turistico.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <Link

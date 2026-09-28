@@ -59,7 +59,7 @@ export default function LeadDetailModal({ lead, onClose }: LeadDetailModalProps)
           <div>
             <span className="text-stone-400 uppercase tracking-wider block text-[10px]">Pasajeras / Edad</span>
             <span className="font-semibold text-stone-900">
-              {lead.passengersCount} viajera(s) {lead.age ? `• ${lead.age} años` : ''}
+              {lead.passengersCount} pasajero(s) {lead.age ? `• ${lead.age} años` : ''}
             </span>
           </div>
         </div>

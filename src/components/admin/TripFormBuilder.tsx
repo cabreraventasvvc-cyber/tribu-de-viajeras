@@ -293,7 +293,7 @@ export default function TripFormBuilder({ initialData, isEditing = false }: Trip
               required
               value={title}
               onChange={(e) => handleTitleChange(e.target.value)}
-              placeholder="Ej: Japón: tradición, magia y modernidad en un solo viaje"
+              placeholder="Ej: Patagonia Esencial: Lagos, Glaciares y Montanas"
               className="w-full px-4 py-2.5 rounded-xl border border-sand-300 text-stone-900 text-sm focus:ring-2 focus:ring-tribu-500 focus:outline-hidden"
             />
           </div>
@@ -311,7 +311,7 @@ export default function TripFormBuilder({ initialData, isEditing = false }: Trip
                 required
                 value={slug}
                 onChange={(e) => setSlug(e.target.value)}
-                placeholder="japon-2027"
+                placeholder="patagonia-2027"
                 className="w-full px-3 py-2.5 rounded-r-xl border border-sand-300 text-stone-900 text-sm focus:ring-2 focus:ring-tribu-500 focus:outline-hidden font-mono text-xs"
               />
             </div>
@@ -326,7 +326,7 @@ export default function TripFormBuilder({ initialData, isEditing = false }: Trip
               required
               value={destinationCountry}
               onChange={(e) => setDestinationCountry(e.target.value)}
-              placeholder="Ej: Japón, Italia, China..."
+              placeholder="Ej: Argentina, Marruecos, Grecia..."
               className="w-full px-4 py-2.5 rounded-xl border border-sand-300 text-stone-900 text-sm focus:ring-2 focus:ring-tribu-500 focus:outline-hidden"
             />
           </div>
@@ -339,7 +339,7 @@ export default function TripFormBuilder({ initialData, isEditing = false }: Trip
               type="text"
               value={destinationCities}
               onChange={(e) => setDestinationCities(e.target.value)}
-              placeholder="Ej: Tokio, Nikko, Monte Fuji y Hakone, Kioto, Nara, Osaka, Hiroshima"
+              placeholder="Ej: El Calafate, El Chalten, Bariloche"
               className="w-full px-4 py-2.5 rounded-xl border border-sand-300 text-stone-900 text-sm focus:ring-2 focus:ring-tribu-500 focus:outline-hidden"
             />
           </div>
@@ -537,7 +537,7 @@ export default function TripFormBuilder({ initialData, isEditing = false }: Trip
             type="text"
             value={pdfItineraryUrl}
             onChange={(e) => setPdfItineraryUrl(e.target.value)}
-            placeholder="Ej: /itineraries/itinerario-japon-2027.pdf"
+            placeholder="Ej: /itineraries/itinerario-patagonia-2027.pdf"
             className="w-full px-4 py-2 rounded-xl border border-sand-300 text-xs font-mono"
           />
           <p className="text-[11px] text-stone-400 mt-1">
